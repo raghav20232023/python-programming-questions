@@ -28,7 +28,7 @@ Details about the functions to be implemented are given as follows:
     """
 
 # Solution
-```python test.py  -r 'python test.py'
+```py3 test.py  -r 'python test.py'
 <prefix>
 
 </prefix>
@@ -81,7 +81,7 @@ calculate_revenue()</sol>
 
 </suffix>
 <suffix_invisible>
-{% include '../function_type_and_modify_check_suffix.py.jinja' %}
+{% include './function_type_and_modify_check_suffix.py.jinja' %}
 </suffix_invisible>
 ```
 
@@ -90,10 +90,7 @@ calculate_revenue()</sol>
 ## Input 1
 
 ```
-is_equal(
-    1000 1500 2000 500,
-    3150
-)
+1000 1500 2000 500
 ```
 
 ## Output 1
@@ -108,10 +105,7 @@ is_equal(
 ## Input 1
 
 ```
-is_equal(
-    1200 900 1500 2000,
-    4230
-)
+1200 900 1500 2000
 ```
 
 ## Output 1

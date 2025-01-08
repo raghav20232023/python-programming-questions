@@ -35,7 +35,6 @@ def process_data(data):
 # Solution
 ```python test.py  -r 'python test.py'
 <prefix>
-
 </prefix>
 <template>
 def process_data(data):
@@ -84,7 +83,7 @@ def process_data(data):
 
 </suffix>
 <suffix_invisible>
-{% include '../function_type_and_modify_check_suffix.py.jinja' %}
+{% include './function_type_and_modify_check_suffix.py.jinja' %}
 </suffix_invisible>
 ```
 
@@ -93,14 +92,15 @@ def process_data(data):
 ## Input 1
 
 ```
-is_equal(
-    data = [
+data = [
     {'name': 'Item 1', 'category': 'A', 'price': 10},
     {'name': 'Item 2', 'category': 'A', 'price': 40},
     {'name': 'Item 3', 'category': 'B', 'price': 60},
     {'name': 'Item 4', 'category': 'C', 'price': 50},
-],
-{'A': 50, 'C': 50}
+]
+is_equal(
+    process_data(data),
+    {'A': 50, 'C': 50}
 )
 
 ```
@@ -117,13 +117,14 @@ is_equal(
 ## Input 1
 
 ```
-is_equal(
-    data = [
+data = [
     {'name': 'X', 'category': 'Food', 'price': 5},
     {'name': 'Y', 'category': 'Food', 'price': 25},
     {'name': 'Z', 'category': 'Stationery', 'price': 50},
-],
-{'Food': 30, 'Stationery': 50}
+]
+is_equal(
+    process_data(data),
+    {'Food': 30, 'Stationery': 50}
 )
 ```
 

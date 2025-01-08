@@ -4,29 +4,29 @@ tags: ['int', 'list', 'float', 'string', 'tuple', 'set', 'dict']
 ---
 
 # Problem Statement
-Implement all the given functions according to the docstrings. There will be 6 functions to implement.
+Implement all the given functions according to the docstrings. 
 Details about the functions to be implemented are given as follows:
 
-def non_overlapping_portions(set1: set, set2: set, set3: set) -> set:
+def find_minimum_element(input_set: set) -> int | float | None:
     """
-    Finds non overlapping portions of venn diagrams of a set
+    Finds the minimum element in a set without using explicit loops.
 
     Args:
-        set1: The first set.
-        set2: The second set.
-        set3: The third set.
+        input_set: The input set.
 
     Returns:
-        A set containing elements present in only one of the input sets.
+        The minimum element in the set, or None if the set is empty.
+        Raises TypeError if the set contains elements of mixed comparable types.
 
-    Example:
-    Input:
-    >>> set1 = {1, 2, 3, 4}
-    >>> set2 = {3, 4, 5, 6}
-    >>> set3 = {4, 6, 7, 8}
-    >>> non_overlapping_portions(set1, set2, set3)
-    Output:
-    {1, 2, 5, 7, 8}
+    Raises:
+        TypeError: If the set contains elements of mixed comparable types
+                   (e.g., integers and strings).
+
+    Examples:
+        >>> find_minimum_element({1, 2, 3, 4, 5})
+        1
+        >>> find_minimum_element(set())
+        None
     """
 
 def combined_list_operations(lst: list) -> list:
@@ -164,40 +164,40 @@ def swap_digits(n: int) -> int | str:
     """
 
 # Solution
-```python test.py -r 'python test.py'
+```py3 test.py  -r 'python test.py'
 <prefix>
 
 </prefix>
 <template>
-def non_overlapping_portions(set1: set, set2: set, set3: set) -> set:
+def find_minimum_element(input_set: set) -> int | float | None:
     """
-    Finds non overlapping portions of venn diagrams of a set
+    Finds the minimum element in a set without using explicit loops.
 
     Args:
-        set1: The first set.
-        set2: The second set.
-        set3: The third set.
+        input_set: The input set.
 
     Returns:
-        A set containing elements present in only one of the input sets.
+        The minimum element in the set, or None if the set is empty.
+        Raises TypeError if the set contains elements of mixed comparable types.
 
-    Example:
-    Input:
-    >>> set1 = {1, 2, 3, 4}
-    >>> set2 = {3, 4, 5, 6}
-    >>> set3 = {4, 6, 7, 8}
-    >>> non_overlapping_portions(set1, set2, set3)
-    Output:
-    {1, 2, 5, 7, 8}
+    Raises:
+        TypeError: If the set contains elements of mixed comparable types
+                   (e.g., integers and strings).
+
+    Examples:
+        >>> find_minimum_element({1, 2, 3, 4, 5})
+        1
+        >>> find_minimum_element(set())
+        None
     """
     <los>...</los>
     <sol>
-    union_all = set1 | set2 | set3
-    pairwise_intersections = (set1 & set2) | (set1 & set3) | (set2 & set3)
-    intersection_all = set1 & set2 & set3
-    return union_all - pairwise_intersections - intersection_all
-    </sol>
+    if not input_set:  # Check for empty set
+        return None
 
+    else:
+      return min(input_set) # Use the built-in min() function
+    </sol>
 
 def combined_list_operations(lst: list) -> list:
     """
@@ -399,7 +399,7 @@ def swap_digits(n: int) -> int | str:
 </template>
 
 <suffix_invisible>
-{% include '../iitm_python_taship/function_type_and_modify_check_suffix.py.jinja' %}
+{% include './function_type_and_modify_check_suffix.py.jinja' %}
 </suffix_invisible>
 ```
 
@@ -408,12 +408,9 @@ def swap_digits(n: int) -> int | str:
 ## Input 1
 
 ```
-set1 = {1, 2, 3}
-set2 = {3, 4, 5}
-set3 = {5, 6, 7}
 is_equal(
-    non_overlapping_portions(set1, set2, set3),
-    {1, 2, 4, 6, 7}
+    find_minimum_element({1,2,5,6,7}),
+    1
 )
 
 lst = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -433,12 +430,12 @@ is_equal(
 )
 
 is_equal(
-    reverse_interleave("abcdef"),
+    reverse_interleave('abcdef'),
     'fdbeca'
 )
 
 is_equal(
-    flip_transform_dict({"a": 1, "b": 2}),
+    flip_transform_dict({'a': 1, 'b': 2}),
     {1: 'a', 2: 'b'}
 )
 
@@ -457,7 +454,7 @@ is_equal(
 ## Output 1
 
 ```
-{1, 2, 4, 6, 7}
+1
 [3, 1, 7, 9]
 3.0
 (18, 2, 216, 0)
@@ -472,12 +469,9 @@ is_equal(
 ## Input 1
 
 ```
-set1 = {10, 20, 30}
-set2 = {20, 40, 50}
-set3 = {50, 60, 70}
 is_equal(
-    non_overlapping_portions(set1, set2, set3),
-    {70, 40, 10, 60, 30}
+    find_minimum_element(set()),
+    None
 )
 
 lst = [10, 20, 30, 40, 50, 60]
@@ -497,12 +491,12 @@ is_equal(
 )
 
 is_equal(
-    reverse_interleave("1234567"),
+    reverse_interleave('1234567'),
     '7531642'
 )
 
 is_equal(
-    flip_transform_dict({"x": 10, "y": 20, "z": 30}),
+    flip_transform_dict({'x': 10, 'y': 20, 'z': 30}),
     {10: 'x', 20: 'y', 30: 'z'}
 )
 
@@ -516,13 +510,12 @@ is_equal(
     swap_digits(-34),
     -43
 )
-
 ```
 
 ## Output 1
 
 ```
-{70, 40, 10, 60, 30}
+None
 [30, 10, 40, 60]
 2.0
 (10, 2, 25, 1)

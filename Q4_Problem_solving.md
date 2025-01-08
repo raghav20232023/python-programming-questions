@@ -25,9 +25,8 @@ def add_grades(student_grades, student, grades):
     """
 
 # Solution
-```python test.py  -r 'python test.py'
+```py3 test.py  -r 'python test.py'
 <prefix>
-
 </prefix>
 <template>
 def add_grades(student_grades, student, grades):
@@ -110,10 +109,9 @@ def find_top_student(student_grades):
     </sol>
 </template>
 <suffix>
-
 </suffix>
 <suffix_invisible>
-{% include '../function_type_and_modify_check_suffix.py.jinja' %}
+{% include './function_type_and_modify_check_suffix.py.jinja' %}
 </suffix_invisible>
 ```
 
@@ -122,9 +120,7 @@ def find_top_student(student_grades):
 ## Input 1
 
 ```
-student_grades = {}
-student_grades = add_grades(student_grades, "Alice", [85, 90])
-student_grades = add_grades(student_grades, "Bob", [70, 80])
+student_grades = {"Alice": [85, 90], "Bob": [70, 80]}
 is_equal(
     calculate_average(student_grades, "Alice"),
     87.5
@@ -137,42 +133,36 @@ is_equal(
 87.5
 ```
 
-
 ## Input 2
 
 ```
-student_grades = {}
-student_grades = add_grades(student_grades, "Alice", [85, 90])
-student_grades = add_grades(student_grades, "Bob", [70, 80])
+student_grades = {"Alice": [85, 90], "Bob": [70, 80]}
 is_equal(
     find_top_student(student_grades),
-    "Alice"
+    'Alice'
 )
 ```
 
 ## Output 2
 
 ```
-"Alice"
+'Alice'
 ```
-
 
 # Private Test Cases
 
 ## Input 1
 
 ```
-student_grades = {}
-student_grades = add_grades(student_grades, "Trevor", [85])
-student_grades = add_grades(student_grades, "Joey", [100])
+student_grades = {"Trevor": [85], "Joey": [100]}
 is_equal(
     find_top_student(student_grades),
-    "Joey"
+    'Joey'
 )
 ```
 
 ## Output 1
 
 ```
-"Joey"
+'Joey'
 ```

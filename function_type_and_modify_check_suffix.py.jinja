@@ -68,7 +68,7 @@ def modify_check(func, in_obj, expected, should_modify=True):
             f'Original input ({type(in_obj).__name__}):\n{order_repr(in_obj_old)}\n'
             f'Your modification:\n{order_repr(in_obj)}'
         )
-        order_print(actual_out)    
+        order_print(actual_out)
 
 import sys
 exec(sys.stdin.read())
